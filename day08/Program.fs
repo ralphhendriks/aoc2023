@@ -33,6 +33,13 @@ let part1 =
 
 printfn "Answer part 1: %i" part1
 
+// The solution below is not generic. It works because the following two conditions hold true:
+// 1. The amount of steps needed to get from a start node (`..A`) to the first end node (`..Z`) are equal to the amount
+//    of steps needed to get from the end node to the end node again.
+// 2. For all paths through the puzzle, once in an end node (`..Z`) you always end up in that same end node. That is,
+//    you do not visit other end nodes in a cycle.
+// This is clever puzzle design, but also feels a bit too fabricated. A generalized solution would be much harder.
+
 let lcm x y =
     let rec gcd x y =
         if y = 0L then x
